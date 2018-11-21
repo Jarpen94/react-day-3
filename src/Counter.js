@@ -2,14 +2,30 @@ import React from 'react'
 import Button from './components/Button'
 
 class Counter extends React.Component {
+    constructor(props) {
+        super()
+
+
+        this.state = {
+            number: props.startNumber
+        }
+    }
+
+
+
     render() {
         return (
             <div>
                 <h1>
-                {this.props.startNumber}
+                    {this.state.number}
                 </h1>
-                <Button 
-                onClick={() => alert('Works!')}
+                <Button
+                    onClick={() => this.setState({ number: this.state.number + 1 })}
+                    label={'+'}
+                />
+                <Button
+                    onClick={() => this.setState({ number: this.state.number - 1 })}
+                    label={'-'}
                 />
             </div>
 
