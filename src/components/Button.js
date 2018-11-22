@@ -2,16 +2,14 @@ import React from 'react'
 
 import RaisedButton from 'material-ui/RaisedButton'
 
-
 const style = {
-    margin: 50,
-};
-
+    margin: 12,
+}
 
 const Button = (props) => (
     <div>
         <RaisedButton
-            label={props.label}
+            label= {props.label}
             primary={true}
             style={style}
             onClick={props.onClick}
@@ -19,4 +17,4 @@ const Button = (props) => (
     </div>
 )
 
-export default Button 
+export default Button

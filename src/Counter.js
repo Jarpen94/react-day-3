@@ -2,16 +2,17 @@ import React from 'react'
 import Button from './components/Button'
 
 class Counter extends React.Component {
-    constructor(props) {
-        super()
-
-
-        this.state = {
-            number: props.startNumber
-        }
+    state = {
+        otherProp: 'whatever',
+        number: this.props.startNumber || 0
     }
 
 
+    incHandler = () => this.setState({ number: this.state.number + 1 })
+    decHandler = () => this.setState({ number: this.state.number - 1 })
+    resHandler = () => this.setState({ number: 0 })
+    multiplyHandler = () => this.setState({ number: this.state.number * 2 })
+    divHandler = () => this.setState({ number: this.state.number / 2 })
 
     render() {
         return (
@@ -20,12 +21,24 @@ class Counter extends React.Component {
                     {this.state.number}
                 </h1>
                 <Button
-                    onClick={() => this.setState({ number: this.state.number + 1 })}
+                    onClick={this.incHandler}
                     label={'+'}
                 />
                 <Button
-                    onClick={() => this.setState({ number: this.state.number - 1 })}
+                    onClick={this.decHandler}
                     label={'-'}
+                />
+                <Button
+                    onClick={this.resHandler}
+                    label={'reset'}
+                />
+                <Button
+                    onClick={this.multiplyHandler}
+                    label={'Mnóż'}
+                />
+                <Button
+                    onClick={this.divHandler}
+                    label={'dziel'}
                 />
             </div>
 
